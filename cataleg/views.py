@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -8,10 +9,8 @@ producto = {
             'precio': '20€',
         }
 
-def index(request):
+def indexCataleg(request):
 
-    return render(request,'index.html', {'Nombre': producto['name'],
-                                         'Descripcion': producto['descripcion'],
-                                         'Precio': producto['precio']
-                                        })
+    return HttpResponse ("Hello, world")
+
 
