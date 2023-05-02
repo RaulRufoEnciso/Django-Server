@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'carreto.apps.CarretoConfig',
+    'cataleg.apps.CatalegConfig',
+    'comandes.apps.ComandesConfig',
 ]
 
 MIDDLEWARE = [
