@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'carreto.apps.CarretoConfig',
     'cataleg.apps.CatalegConfig',
     'comandes.apps.ComandesConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -62,7 +64,9 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
