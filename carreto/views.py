@@ -9,7 +9,7 @@ producto = {
         }
 
 def index(request):
-    
+
     return render(request,'index.html', {'Nombre': producto['name'],
                                          'Descripcion': producto['descripcion'],
                                          'Precio': producto['precio']
