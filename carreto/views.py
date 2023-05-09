@@ -22,7 +22,16 @@ from rest_framework.response import Response
 # Crear la vista
 @api_view(['GET'])
 def getRuta(request):
-    # Crear una respuesta HTTP
+    list = [
+        {'HOLA':'ADIOS'},
+        {'HOLA1':'ADIOS1'},
+        {'HOLA2':'ADIOS2'},
+    ]
+    return Response(list)
+
+# Objetos en el carreto
+@api_view(['POST','GET'])
+def getRuta2(request):
 
     list = [
         {'HOLA':'ADIOS'},
