@@ -32,6 +32,7 @@ def getRuta(request):
 # Objetos en el carreto
 @api_view(['POST','GET'])
 def getRuta2(request):
+
     list = [
         {'HOLA':'ADIOS'},
         {'HOLA1':'ADIOS1'},
