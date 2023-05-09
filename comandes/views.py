@@ -1,15 +1,14 @@
-from django.shortcuts import render, redirect
+#from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from .models import Comanda
-from .models import HistorialComandas
+from django.core import serializers
 
 
 # Create your views here.
 
-@api_view(['GET'])
+@api_view(['POST'])
 def getRuta(request):
     # Crear una respuesta HTTP
 
@@ -20,16 +19,7 @@ def getRuta(request):
     ]
     return Response(list)
 
-
-
-def actualizar_estado_pedido(request, comanda_id):
-    comanda = get_object_or_404(Comanda, pk=comanda_id)
-    comanda.estat = 'pagado'
-    comanda.save()
-
-    # Crear registro en el historial de comandas
-    historial_comanda = HistorialComandas(comanda=comanda, estat_comanda=comanda.estat)
-    historial_comanda.save()
-
-    return JsonResponse({'success': True})
-
+def listar_comandas(request):
+    comandas = Comanda.objects.all()
+    comandas_serialized = serializers.serialize('json', comandas)
+    return JsonResponse(comandas_serialized, safe=False)
