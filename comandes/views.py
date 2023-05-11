@@ -1,17 +1,16 @@
-from django.shortcuts import render, redirect
+#from django.shortcuts import render, redirect
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from django.http import JsonResponse
+from .models import Comanda
+from django.core import serializers
+from rest_framework import generics
+from .serializer import comandasSerializer
 
 # Create your views here.
 
-producto = {
-            'name': 'silla',
-            'descripcion': 'silla de plastico para jardin super resistente',
-            'precio': '20€',
-        }
 
-def index(request):
 
-    return render(request,'index.html', {'Nombre': producto['name'],
-                                         'Descripcion': producto['descripcion'],
-                                         'Precio': producto['precio']
-                                        })
-
+class show_comandas(generics.ListCreateAPIView):
+    queryset = Comanda.objects.all()
+    serializer_class = comandasSerializer
