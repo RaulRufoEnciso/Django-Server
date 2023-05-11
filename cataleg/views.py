@@ -12,13 +12,6 @@ from .serializer import ProductoSerializer
 
 # Create your views here.
 
-producto = {
-            'name': 'silla',
-            'descripcion': 'silla de plastico para jardin super resistente',
-            'precio': '20€',
-        }
-
-
 
 class ProductoList(generics.ListCreateAPIView):
     queryset = Producto.objects.all()
@@ -29,6 +22,8 @@ class ProductoDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProductoSerializer
 
 
+
+#
 #@api_view(['GET'])
 #def show_all_products(request):
     #data =
